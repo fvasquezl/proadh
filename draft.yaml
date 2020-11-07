@@ -1,0 +1,13 @@
+models:
+  Car:
+    brand: string
+    slug: string unique
+    description: mediumtext
+    model_id: id
+    user_id: id
+  Model:
+    name: string
+    slug: string unique
+    relationships:
+      hasMany: Car
+
