@@ -31,7 +31,7 @@ class CreateCarsTest extends TestCase
     }
 
     /** @test */
-    public function register_user_can_create_a_car()
+    public function registered_user_can_create_a_car()
     {
         $user = User::factory()->create();
         $model = Model::factory()->create();;
@@ -41,6 +41,7 @@ class CreateCarsTest extends TestCase
         ]));
 
         Sanctum::actingAs($user);
+
 
         $this->jsonApi()->withData([
             'type' => 'cars',
@@ -53,7 +54,7 @@ class CreateCarsTest extends TestCase
                     ]
                 ]
             ]
-        ])->post(route('api.v1.cars.create'))->dump()
+        ])->post(route('api.v1.cars.create'))
             ->assertCreated();
 
         $this->assertDatabaseHas('cars', [
@@ -66,12 +67,12 @@ class CreateCarsTest extends TestCase
     }
 
     /**  @test */
-    public function models_is_required()
+    public function model_is_required()
     {
         $car = Car::factory()->raw(['model_id' => null]);
         Sanctum::actingAs(User::factory()->create());
         $this->jsonApi()->withData([
-            'type' => 'cars',//
+            'type' => 'cars',
             'attributes' => $car
         ])->post(route('api.v1.cars.create'))
             ->assertStatus(422)
@@ -80,7 +81,7 @@ class CreateCarsTest extends TestCase
     }
 
     /**  @test */
-    public function models_must_be_a_relationship_object()
+    public function model_must_be_a_relationship_object()
     {
         $car = Car::factory()->raw(['model_id' => null]);
         $car['models'] = 'slug';

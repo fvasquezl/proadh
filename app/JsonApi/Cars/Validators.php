@@ -51,12 +51,12 @@ class Validators extends AbstractValidators
                 'required',
                 'alpha_dash',
                 New Slug(),
-                Rule::unique('posts')->ignore($record)
+                Rule::unique('cars')->ignore($record)
             ],
             'description' => ['required'],
             'models' => [
                 Rule::requiredIf(! $record),
-                new HasOne('categories')
+                new HasOne('models')
             ]
         ];
     }

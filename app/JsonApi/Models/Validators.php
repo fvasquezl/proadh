@@ -1,6 +1,6 @@
 <?php
 
-namespace App\JsonApi\Categories;
+namespace App\JsonApi\Models;
 
 use CloudCreativity\LaravelJsonApi\Validation\AbstractValidators;
 

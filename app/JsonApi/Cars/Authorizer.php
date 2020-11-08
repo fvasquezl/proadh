@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class Authorizer extends AbstractAuthorizer
 {
-
+    protected $guards= ['sanctum'];
     /**
      * Authorize a resource index request.
      *
@@ -18,7 +18,6 @@ class Authorizer extends AbstractAuthorizer
      * @param Request $request
      *      the inbound request.
      * @return void
-     * @throws AuthenticationException|AuthorizationException
      *      if the request is not authorized.
      */
     public function index($type, $request)
@@ -39,8 +38,7 @@ class Authorizer extends AbstractAuthorizer
      */
     public function create($type, $request)
     {
-        dd($this->authenticate());
-        $this->authenticate();
+       $this->authenticate();
     }
 
     /**

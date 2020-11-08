@@ -25,6 +25,11 @@ class Model extends EloquentModel
         'id' => 'integer',
     ];
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
 
     public function cars()
     {

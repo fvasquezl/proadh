@@ -1,6 +1,6 @@
 <?php
 
-namespace App\JsonApi\Categories;
+namespace App\JsonApi\Models;
 
 use Neomerx\JsonApi\Schema\SchemaProvider;
 
@@ -10,10 +10,10 @@ class Schema extends SchemaProvider
     /**
      * @var string
      */
-    protected $resourceType = 'categories';
+    protected $resourceType = 'models';
 
     /**
-     * @param \App\Models\Category $resource
+     * @param \App\Models\Model $resource
      *      the domain record being serialized.
      * @return string
      */
@@ -23,7 +23,7 @@ class Schema extends SchemaProvider
     }
 
     /**
-     * @param \App\Models\Category $resource
+     * @param \App\Models\Model $resource
      *      the domain record being serialized.
      * @return array
      */

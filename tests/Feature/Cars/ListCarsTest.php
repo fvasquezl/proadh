@@ -21,10 +21,9 @@ class ListCarsTest extends TestCase
                 'type' => 'cars',
                 'id' => (string)$car->getRouteKey(),
                 'attributes' => [
-                    'title' => $car->title,
+                    'brand' => $car->brand,
                     'slug' => $car->slug,
-                    'excerpt' => $car->excerpt,
-                    'publishedAt' => $car->published_at->toAtomString(),
+                    'description' => $car->description,
                     'createdAt' => $car->created_at->toAtomString(),
                     'updatedAt' => $car->updated_at->toAtomString(),
                 ],
@@ -33,10 +32,10 @@ class ListCarsTest extends TestCase
                 ]
             ]
         ]);
-//        $this->assertNull(
-//            $response->json('data.relationships.authors.data'),
-//            "The key 'data.relationships.authors.data' must be null"
-//        );
+        $this->assertNull(
+            $response->json('data.relationships.authors.data'),
+            "The key 'data.relationships.authors.data' must be null"
+        );
     }
 
     /** @test */
@@ -50,10 +49,9 @@ class ListCarsTest extends TestCase
                     'type' => 'cars',
                     'id' => (string)$car[0]->getRouteKey(),
                     'attributes' => [
-                        'title' => $car[0]->title,
+                        'brand' => $car[0]->brand,
                         'slug' => $car[0]->slug,
-                        'excerpt' => $car[0]->excerpt,
-                        'publishedAt' => $car[0]->published_at->toAtomString(),
+                        'description' => $car[0]->description,
                         'createdAt' => $car[0]->created_at->toAtomString(),
                         'updatedAt' => $car[0]->updated_at->toAtomString(),
                     ],
@@ -65,10 +63,9 @@ class ListCarsTest extends TestCase
                     'type' => 'cars',
                     'id' => (string)$car[1]->getRouteKey(),
                     'attributes' => [
-                        'title' => $car[1]->title,
+                        'brand' => $car[1]->brand,
                         'slug' => $car[1]->slug,
-                        'excerpt' => $car[1]->excerpt,
-                        'publishedAt' => $car[1]->published_at->toAtomString(),
+                        'description' => $car[1]->description,
                         'createdAt' => $car[1]->created_at->toAtomString(),
                         'updatedAt' => $car[1]->updated_at->toAtomString(),
                     ],
@@ -80,10 +77,9 @@ class ListCarsTest extends TestCase
                     'type' => 'cars',
                     'id' => (string)$car[2]->getRouteKey(),
                     'attributes' => [
-                        'title' => $car[2]->title,
+                        'brand' => $car[2]->brand,
                         'slug' => $car[2]->slug,
-                        'excerpt' => $car[2]->excerpt,
-                        'publishedAt' => $car[2]->published_at->toAtomString(),
+                        'description' => $car[2]->description,
                         'createdAt' => $car[2]->created_at->toAtomString(),
                         'updatedAt' => $car[2]->updated_at->toAtomString(),
                     ],
