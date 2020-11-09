@@ -1,11 +1,8 @@
 <?php
 
-namespace App\JsonApi\Cars;
+namespace App\JsonApi\Authors;
 
-use App\Rules\Slug;
-use CloudCreativity\LaravelJsonApi\Rules\HasOne;
 use CloudCreativity\LaravelJsonApi\Validation\AbstractValidators;
-use Illuminate\Validation\Rule;
 
 class Validators extends AbstractValidators
 {
@@ -16,7 +13,7 @@ class Validators extends AbstractValidators
      * @var string[]|null
      *      the allowed paths, an empty array for none allowed, or null to allow all paths.
      */
-    protected $allowedIncludePaths = ['authors','models'];
+    protected $allowedIncludePaths = ['cars'];
 
     /**
      * The sort field names a client is allowed send.
@@ -45,25 +42,8 @@ class Validators extends AbstractValidators
      */
     protected function rules($record, array $data): array
     {
-
         return [
-            'brand' => ['required'],
-            'slug' => [
-                'required',
-                'alpha_dash',
-                New Slug(),
-                Rule::unique('cars')->ignore($record)
-            ],
-            'year' => ['required'],
-            'description' => ['required'],
-            'authors'=>[
-               ['required'],
-                new HasOne('authors')
-            ],
-            'models' => [
-                Rule::requiredIf(! $record),
-                new HasOne('models')
-            ]
+            //
         ];
     }
 

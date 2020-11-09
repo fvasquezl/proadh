@@ -5,15 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="447ca9a9-08b2-4433-a631-58ff246f0ce3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.blueprint" beforeDir="false" afterPath="$PROJECT_DIR$/.blueprint" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Car.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Car1.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Model1.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/CarFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/CarFactory1.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/ModelFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/ModelFactory1.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_07_054240_create_cars_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_07_054240_create_cars_table1.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_07_054241_create_models_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_07_054241_create_models_table1.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/draft.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/draft.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/JsonApi/Cars/Adapter.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/JsonApi/Cars/Adapter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/JsonApi/Cars/Validators.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/JsonApi/Cars/Validators.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/JsonApi/Models/Adapter.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/JsonApi/Models/Adapter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/json-api-v1.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/json-api-v1.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/Cars/CreateCarsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Cars/CreateCarsTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,25 +162,25 @@
     <property name="settings.editor.selected.configurable" value="MTConfigurable" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected="PHPUnit.ListCarsTest.can_fetch_single_cars">
-    <configuration name="CreateCarsTest.guest_user_cannot_create_a_car" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Cars\CreateCarsTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Cars/CreateCarsTest.php" method="guest_user_cannot_create_a_car" scope="Method" />
+  <component name="RunManager" selected="PHPUnit.CreateCarsTest.registered_user_can_create_a_car">
+    <configuration name="CreateCarsTest.authors_is_required" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Cars\CreateCarsTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Cars/CreateCarsTest.php" method="authors_is_required" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="CreateCarsTest.authors_must_be_a_relationship_object" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Cars\CreateCarsTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Cars/CreateCarsTest.php" method="authors_must_be_a_relationship_object" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="CreateCarsTest.model_must_be_a_relationship_object" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Cars\CreateCarsTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Cars/CreateCarsTest.php" method="model_must_be_a_relationship_object" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="CreateCarsTest.models_is_required" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Tests\Feature\Cars\CreateCarsTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Cars/CreateCarsTest.php" method="models_is_required" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="CreateCarsTest.register_user_can_create_a_car" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Cars\CreateCarsTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Cars/CreateCarsTest.php" method="register_user_can_create_a_car" scope="Method" />
-      <method v="2" />
-    </configuration>
-    <configuration name="ListCarsTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Cars\ListCarsTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Cars/ListCarsTest.php" scope="Class" />
-      <method v="2" />
-    </configuration>
-    <configuration name="ListCarsTest.can_fetch_single_cars" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Cars\ListCarsTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Cars/ListCarsTest.php" method="can_fetch_single_cars" scope="Method" />
+    <configuration name="CreateCarsTest.registered_user_can_create_a_car" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Cars\CreateCarsTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Cars/CreateCarsTest.php" method="registered_user_can_create_a_car" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -192,11 +189,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="PHPUnit.ListCarsTest.can_fetch_single_cars" />
-        <item itemvalue="PHPUnit.ListCarsTest" />
+        <item itemvalue="PHPUnit.CreateCarsTest.registered_user_can_create_a_car" />
+        <item itemvalue="PHPUnit.CreateCarsTest.authors_is_required" />
         <item itemvalue="PHPUnit.CreateCarsTest.models_is_required" />
-        <item itemvalue="PHPUnit.CreateCarsTest.register_user_can_create_a_car" />
-        <item itemvalue="PHPUnit.CreateCarsTest.guest_user_cannot_create_a_car" />
+        <item itemvalue="PHPUnit.CreateCarsTest.authors_must_be_a_relationship_object" />
+        <item itemvalue="PHPUnit.CreateCarsTest.model_must_be_a_relationship_object" />
       </list>
     </recent_temporary>
   </component>
@@ -217,6 +214,8 @@
       <workItem from="1604724388492" duration="7958000" />
       <workItem from="1604809826127" duration="7439000" />
       <workItem from="1604941733698" duration="1390000" />
+      <workItem from="1604954930301" duration="5046000" />
+      <workItem from="1604962350890" duration="1557000" />
     </task>
     <servers />
   </component>
@@ -248,45 +247,45 @@
     </state>
     <state x="471" y="330" key="#com.jetbrains.php.lang.intentions.PhpImportClassDialog#/0.23.1366.745@0.23.1366.745" timestamp="1604735531163" />
     <state x="662" y="461" width="424" height="144" key="#com.jetbrains.php.lang.intentions.PhpImportClassDialog#/0.27.1920.1053/1920.0.1920.1080@0.27.1920.1053" timestamp="1604942367917" />
-    <state width="1366" height="141" key="GridCell.Tab.0.bottom" timestamp="1604818367463">
+    <state width="1366" height="217" key="GridCell.Tab.0.bottom" timestamp="1604963904861">
       <screen x="0" y="23" width="1366" height="745" />
     </state>
-    <state width="1366" height="141" key="GridCell.Tab.0.bottom/0.23.1366.745@0.23.1366.745" timestamp="1604818367463" />
+    <state width="1366" height="217" key="GridCell.Tab.0.bottom/0.23.1366.745@0.23.1366.745" timestamp="1604963904861" />
     <state width="1872" height="213" key="GridCell.Tab.0.bottom/0.27.1920.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604687174693" />
-    <state width="1366" height="141" key="GridCell.Tab.0.center" timestamp="1604818367462">
+    <state width="1366" height="217" key="GridCell.Tab.0.center" timestamp="1604963904860">
       <screen x="0" y="23" width="1366" height="745" />
     </state>
-    <state width="1366" height="141" key="GridCell.Tab.0.center/0.23.1366.745@0.23.1366.745" timestamp="1604818367462" />
+    <state width="1366" height="217" key="GridCell.Tab.0.center/0.23.1366.745@0.23.1366.745" timestamp="1604963904860" />
     <state width="1872" height="213" key="GridCell.Tab.0.center/0.27.1920.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604687174692" />
-    <state width="1366" height="141" key="GridCell.Tab.0.left" timestamp="1604818367461">
+    <state width="1366" height="217" key="GridCell.Tab.0.left" timestamp="1604963904860">
       <screen x="0" y="23" width="1366" height="745" />
     </state>
-    <state width="1366" height="141" key="GridCell.Tab.0.left/0.23.1366.745@0.23.1366.745" timestamp="1604818367461" />
+    <state width="1366" height="217" key="GridCell.Tab.0.left/0.23.1366.745@0.23.1366.745" timestamp="1604963904860" />
     <state width="1872" height="213" key="GridCell.Tab.0.left/0.27.1920.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604687174692" />
-    <state width="1366" height="141" key="GridCell.Tab.0.right" timestamp="1604818367462">
+    <state width="1366" height="217" key="GridCell.Tab.0.right" timestamp="1604963904861">
       <screen x="0" y="23" width="1366" height="745" />
     </state>
-    <state width="1366" height="141" key="GridCell.Tab.0.right/0.23.1366.745@0.23.1366.745" timestamp="1604818367462" />
+    <state width="1366" height="217" key="GridCell.Tab.0.right/0.23.1366.745@0.23.1366.745" timestamp="1604963904861" />
     <state width="1872" height="213" key="GridCell.Tab.0.right/0.27.1920.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604687174693" />
-    <state width="1366" height="148" key="GridCell.Tab.1.bottom" timestamp="1604818119404">
+    <state width="1366" height="217" key="GridCell.Tab.1.bottom" timestamp="1604963904726">
       <screen x="0" y="23" width="1366" height="745" />
     </state>
-    <state width="1366" height="148" key="GridCell.Tab.1.bottom/0.23.1366.745@0.23.1366.745" timestamp="1604818119404" />
+    <state width="1366" height="217" key="GridCell.Tab.1.bottom/0.23.1366.745@0.23.1366.745" timestamp="1604963904726" />
     <state width="1872" height="2" key="GridCell.Tab.1.bottom/0.27.1920.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604428809962" />
-    <state width="1366" height="148" key="GridCell.Tab.1.center" timestamp="1604818119403">
+    <state width="1366" height="217" key="GridCell.Tab.1.center" timestamp="1604963904725">
       <screen x="0" y="23" width="1366" height="745" />
     </state>
-    <state width="1366" height="148" key="GridCell.Tab.1.center/0.23.1366.745@0.23.1366.745" timestamp="1604818119403" />
+    <state width="1366" height="217" key="GridCell.Tab.1.center/0.23.1366.745@0.23.1366.745" timestamp="1604963904725" />
     <state width="1872" height="2" key="GridCell.Tab.1.center/0.27.1920.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604428809962" />
-    <state width="1366" height="148" key="GridCell.Tab.1.left" timestamp="1604818119403">
+    <state width="1366" height="217" key="GridCell.Tab.1.left" timestamp="1604963904725">
       <screen x="0" y="23" width="1366" height="745" />
     </state>
-    <state width="1366" height="148" key="GridCell.Tab.1.left/0.23.1366.745@0.23.1366.745" timestamp="1604818119403" />
+    <state width="1366" height="217" key="GridCell.Tab.1.left/0.23.1366.745@0.23.1366.745" timestamp="1604963904725" />
     <state width="1872" height="2" key="GridCell.Tab.1.left/0.27.1920.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604428809962" />
-    <state width="1366" height="148" key="GridCell.Tab.1.right" timestamp="1604818119404">
+    <state width="1366" height="217" key="GridCell.Tab.1.right" timestamp="1604963904725">
       <screen x="0" y="23" width="1366" height="745" />
     </state>
-    <state width="1366" height="148" key="GridCell.Tab.1.right/0.23.1366.745@0.23.1366.745" timestamp="1604818119404" />
+    <state width="1366" height="217" key="GridCell.Tab.1.right/0.23.1366.745@0.23.1366.745" timestamp="1604963904725" />
     <state width="1872" height="2" key="GridCell.Tab.1.right/0.27.1920.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604428809962" />
     <state x="2633" y="237" width="483" height="604" key="NewPhpClassDialog" timestamp="1604607640467">
       <screen x="1920" y="0" width="1920" height="1080" />
