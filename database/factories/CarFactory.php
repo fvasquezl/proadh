@@ -27,6 +27,7 @@ class CarFactory extends Factory
         return [
             'brand' => $this->faker->word,
             'slug' => $this->faker->slug,
+            'year' => $this->faker->dateTime(),
             'description' => $this->faker->text,
             'model_id' => Model::factory(),
             'user_id' => User::factory(),

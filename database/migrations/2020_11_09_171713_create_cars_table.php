@@ -19,6 +19,7 @@ class CreateCarsTable extends Migration
             $table->id();
             $table->string('brand');
             $table->string('slug')->unique();
+            $table->timestamp('year');
             $table->mediumText('description');
             $table->foreignId('model_id')->constrained()->cascadeOnDelete();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();

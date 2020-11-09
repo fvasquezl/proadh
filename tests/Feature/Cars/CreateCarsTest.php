@@ -38,7 +38,9 @@ class CreateCarsTest extends TestCase
 
         $car = array_filter(Car::factory()->raw([
             'model_id'=>null,
+            'year' => now()
         ]));
+
 
         Sanctum::actingAs($user);
 
@@ -61,6 +63,7 @@ class CreateCarsTest extends TestCase
             'user_id' => $user->id,
             'brand' => $car['brand'],
             'slug' => $car['slug'],
+            'year' =>  $car['year'],
             'description' => $car['description'],
         ]);
 

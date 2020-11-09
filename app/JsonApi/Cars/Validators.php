@@ -53,6 +53,7 @@ class Validators extends AbstractValidators
                 New Slug(),
                 Rule::unique('cars')->ignore($record)
             ],
+            'year' => ['required'],
             'description' => ['required'],
             'models' => [
                 Rule::requiredIf(! $record),

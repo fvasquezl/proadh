@@ -16,6 +16,11 @@ class Model extends EloquentModel
      */
     protected $guarded = [];
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     /**
      * The attributes that should be cast to native types.
      *
@@ -24,11 +29,6 @@ class Model extends EloquentModel
     protected $casts = [
         'id' => 'integer',
     ];
-
-    public function getRouteKeyName()
-    {
-        return 'slug';
-    }
 
 
     public function cars()

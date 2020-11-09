@@ -2,6 +2,7 @@ models:
   Car:
     brand: string
     slug: string unique
+    year: timestamp
     description: mediumtext
     model_id: id
     user_id: id

@@ -5,25 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="447ca9a9-08b2-4433-a631-58ff246f0ce3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.blueprint" beforeDir="false" afterPath="$PROJECT_DIR$/.blueprint" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Exceptions/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exceptions/Handler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/PostsCollection.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/PostsResource.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/JsonApi/Cars/Authorizer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/JsonApi/Cars/Authorizer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/JsonApi/Cars/Validators.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/JsonApi/Cars/Validators.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/JsonApi/Categories/Adapter.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/JsonApi/Categories/Schema.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/JsonApi/Categories/Validators.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/JsonApi/Posts/Adapter.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/JsonApi/Posts/Authorizer.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/JsonApi/Posts/Schema.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/JsonApi/Posts/Validators.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/Cars/CreateCarsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Cars/CreateCarsTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/Cars/ListCarsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Cars/ListCarsTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Car.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Car1.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Model1.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/CarFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/CarFactory1.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/ModelFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/ModelFactory1.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_07_054240_create_cars_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_07_054240_create_cars_table1.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_07_054241_create_models_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_07_054241_create_models_table1.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/draft.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/draft.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -226,6 +216,7 @@
       <workItem from="1604722968393" duration="764000" />
       <workItem from="1604724388492" duration="7958000" />
       <workItem from="1604809826127" duration="7439000" />
+      <workItem from="1604941733698" duration="1390000" />
     </task>
     <servers />
   </component>
@@ -246,15 +237,17 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2020" y="100" width="1720" height="880" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.27.1920.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604095001622" />
-    <state x="421" y="157" width="524" height="482" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1604733761829">
-      <screen x="0" y="23" width="1366" height="745" />
+    <state x="592" y="216" width="524" height="482" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1604942461786">
+      <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="421" y="157" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1366.745@0.23.1366.745" timestamp="1604733761829" />
+    <state x="592" y="216" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.27.1920.1053/1920.0.1920.1080@0.27.1920.1053" timestamp="1604942461786" />
     <state x="2512" y="194" width="524" height="482" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.27.1920.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604686410305" />
-    <state x="471" y="330" key="#com.jetbrains.php.lang.intentions.PhpImportClassDialog#" timestamp="1604735531163">
-      <screen x="0" y="23" width="1366" height="745" />
+    <state x="662" y="461" width="424" height="144" key="#com.jetbrains.php.lang.intentions.PhpImportClassDialog#" timestamp="1604942367917">
+      <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="471" y="330" key="#com.jetbrains.php.lang.intentions.PhpImportClassDialog#/0.23.1366.745@0.23.1366.745" timestamp="1604735531163" />
+    <state x="662" y="461" width="424" height="144" key="#com.jetbrains.php.lang.intentions.PhpImportClassDialog#/0.27.1920.1053/1920.0.1920.1080@0.27.1920.1053" timestamp="1604942367917" />
     <state width="1366" height="141" key="GridCell.Tab.0.bottom" timestamp="1604818367463">
       <screen x="0" y="23" width="1366" height="745" />
     </state>

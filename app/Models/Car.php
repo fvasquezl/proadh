@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Model as CarModels;
+use App\Models\Model as CarModel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -33,10 +33,19 @@ class Car extends Model
         'user_id' => 'string',
     ];
 
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = [
+        'year',
+    ];
+
 
     public function model()
     {
-        return $this->belongsTo(CarModels::class);
+        return $this->belongsTo(CarModel::class);
     }
 
     public function user()
