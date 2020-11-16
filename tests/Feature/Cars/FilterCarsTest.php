@@ -76,4 +76,14 @@ class FilterCarsTest extends TestCase
             ->assertDontSee('Other text');
     }
 
+    /** @test */
+    public function cannot_filter_cars_by_unknown_filters()
+    {
+        Car::factory()->create();
+
+        $url = route('api.v1.cars.index', ['filter[unknown]' => 2]);
+
+        $this->jsonApi()->get($url)->assertStatus(400);
+    }
+
 }
