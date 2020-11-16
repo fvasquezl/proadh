@@ -73,8 +73,9 @@ return [
     'resources' => [
         'cars' => Car::class,
         'models'=> Model::class,
-        'users' => User::class
+        'authors' => User::class
     ],
+
 
     /*
     |--------------------------------------------------------------------------

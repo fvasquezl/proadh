@@ -18,7 +18,7 @@ class CreateCarsTest extends TestCase
     public function guest_user_cannot_create_a_car()
     {
         $car = array_filter(Car::factory()->raw([
-            'user_id'=>null,
+            'user_id' => null,
         ]));
 
         $this->jsonApi()->withData([
@@ -35,11 +35,13 @@ class CreateCarsTest extends TestCase
     public function registered_user_can_create_a_car()
     {
         $user = User::factory()->create();
-        $model = Model::factory()->create();;
+        $model = Model::factory()->create();
 
         $car = array_filter(Car::factory()->raw([
             'model_id'=>null,
+            'aprobe' => true, //massive assignment check
         ]));
+
 
         Sanctum::actingAs($user);
 
@@ -47,6 +49,12 @@ class CreateCarsTest extends TestCase
             'type' => 'cars',
             'attributes' => $car,
             'relationships' => [
+                'authors' => [
+                    'data' => [
+                        'id' => $user->getRouteKey(),
+                        'type' => 'authors'
+                    ]
+                ],
                 'models' => [
                     'data' => [
                         'id' => $model->getRouteKey(),
@@ -69,7 +77,7 @@ class CreateCarsTest extends TestCase
     }
 
     /**  @test */
-    public function model_is_required()
+    public function models_is_required()
     {
         $car = Car::factory()->raw(['model_id' => null]);
         Sanctum::actingAs(User::factory()->create());
@@ -83,7 +91,59 @@ class CreateCarsTest extends TestCase
     }
 
     /**  @test */
-    public function model_must_be_a_relationship_object()
+    public function authors_is_required()
+    {
+        $car = Car::factory()->raw();
+        $model = Model::factory()->create();
+
+        Sanctum::actingAs(User::factory()->create());
+        $this->jsonApi()->withData([
+            'type' => 'cars',
+            'attributes' => $car,
+            'relationships' => [
+                'models' => [
+                    'data' => [
+                        'id' => $model->getRouteKey(),
+                        'type' => 'models'
+                    ]
+                ]
+            ]
+        ])->post(route('api.v1.cars.create'))
+            ->assertStatus(422)
+            ->assertJsonFragment(['source' => ['pointer' => '/data']]);
+        $this->assertDatabaseMissing('cars', $car);
+    }
+
+    /**  @test */
+    public function authors_must_be_a_relationship_object()
+    {
+        $car = Car::factory()->raw();
+        $model = Model::factory()->create();
+
+        $car['authors'] = 'id';
+
+        Sanctum::actingAs(User::factory()->create());
+
+        $this->jsonApi()->withData([
+            'type' => 'cars',
+            'attributes' => $car,
+            'relationships' => [
+                'models' => [
+                    'data' => [
+                        'id' => $model->getRouteKey(),
+                        'type' => 'models'
+                    ]
+                ]
+            ]
+        ])->post(route('api.v1.cars.create'))
+            ->assertStatus(422)
+            ->assertSee('data\/attributes\/authors');;
+        $this->assertDatabaseMissing('cars', $car);
+    }
+
+
+    /**  @test */
+    public function models_must_be_a_relationship_object()
     {
         $car = Car::factory()->raw(['model_id' => null]);
         $car['models'] = 'slug';
@@ -95,8 +155,7 @@ class CreateCarsTest extends TestCase
             'attributes' => $car
         ])->post(route('api.v1.cars.create'))
             ->assertStatus(422)
-            ->assertSee('data\/attributes\/models');
-        ;
+            ->assertSee('data\/attributes\/models');;
         $this->assertDatabaseMissing('cars', $car);
     }
 
@@ -304,7 +363,7 @@ class CreateCarsTest extends TestCase
             'attributes' => $car
         ])->post(route('api.v1.cars.create'))
             ->assertStatus(422)
-            ->assertSee(trans('validation.no_underscores',['attribute'=> 'slug']))
+            ->assertSee(trans('validation.no_underscores', ['attribute' => 'slug']))
             ->assertSee('data\/attributes\/slug');
 
         $this->assertDatabaseMissing('cars', $car);
@@ -323,7 +382,7 @@ class CreateCarsTest extends TestCase
             'attributes' => $car
         ])->post(route('api.v1.cars.create'))
             ->assertStatus(422)
-            ->assertSee(trans('validation.no_starting_dashes',['attribute'=> 'slug']))
+            ->assertSee(trans('validation.no_starting_dashes', ['attribute' => 'slug']))
             ->assertSee('data\/attributes\/slug');
 
         $this->assertDatabaseMissing('cars', $car);
@@ -342,7 +401,7 @@ class CreateCarsTest extends TestCase
             'attributes' => $car
         ])->post(route('api.v1.cars.create'))
             ->assertStatus(422)
-            ->assertSee(trans('validation.no_ending_dashes',['attribute'=> 'slug']))
+            ->assertSee(trans('validation.no_ending_dashes', ['attribute' => 'slug']))
             ->assertSee('data\/attributes\/slug');
 
         $this->assertDatabaseMissing('cars', $car);

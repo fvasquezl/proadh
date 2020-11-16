@@ -2,6 +2,7 @@
 
 namespace App\JsonApi\Cars;
 
+use App\Models\Car;
 use CloudCreativity\LaravelJsonApi\Eloquent\AbstractAdapter;
 use CloudCreativity\LaravelJsonApi\Pagination\StandardStrategy;
 use Illuminate\Database\Eloquent\Builder;
@@ -9,7 +10,8 @@ use Illuminate\Support\Collection;
 
 class Adapter extends AbstractAdapter
 {
-    protected $guarded=['id'];
+    protected $fillable=['brand','slug','year','vin','description','models','authors'];
+
 
     protected $includePaths =[
         'authors' =>'user',
@@ -37,7 +39,7 @@ class Adapter extends AbstractAdapter
      */
     public function __construct(StandardStrategy $paging)
     {
-        parent::__construct(new \App\Models\Car(), $paging);
+        parent::__construct(new Car(), $paging);
     }
 
     /**
@@ -50,13 +52,7 @@ class Adapter extends AbstractAdapter
         $this->filterWithScopes($query, $filters);
     }
 
-    protected function fillAttributes($car, Collection $attributes)
-    {
-        $car->fill($attributes->toArray());
-        $car->user_id = auth()->id();
-    }
-
-    public function users()
+    public function authors()
     {
         return $this->belongsTo('user');
     }
