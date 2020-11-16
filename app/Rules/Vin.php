@@ -22,14 +22,10 @@ class Vin implements Rule
     public function passes($attribute, $vin)
     {
         if ($this->invalidLength($vin)) {
-            $this->message = 'cars.validation.invalidVINLength';
+            $this->message = trans('validation.invalid_length');
             return false;
         }
 
-        if ($this->containsForbiddenCharacters($vin)) {
-            $this->message = 'cars.validation.invalidVINForbiddenChars';
-            return false;
-        }
 
         return true;
     }
@@ -49,12 +45,13 @@ class Vin implements Rule
         return strlen($vin) !== $this->vinLength;
     }
 
-    private function containsForbiddenCharacters($vin): bool
-    {
-        preg_match('/([OIQ])/', $vin, $invalidLetters);
-        preg_match('/([^A-Z0-9])/', $vin, $invalidChars);
+//    private function containsForbiddenCharacters($vin): bool
+//    {
+//        preg_match('/([OIQ])/', $vin, $invalidLetters);
+//        preg_match('/([^A-Z0-9])/', $vin, $invalidChars);
+//
+//        return (count($invalidLetters) > 0) || count($invalidChars) > 0;
+//    }
 
-        return (count($invalidLetters) > 0) || count($invalidChars) > 0;
-    }
 
 }

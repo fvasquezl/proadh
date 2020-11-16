@@ -21,6 +21,6 @@ class FilterCarsTest extends TestCase
             'brand' => 'Ford'
         ]);
 
-        $url = route('api.v1.articles.index',['filter[title]'=> 'Laravel']);
+        $url = route('api.v1.cars.index',['filter[brand]'=> 'Volkswagen']);
     }
 }

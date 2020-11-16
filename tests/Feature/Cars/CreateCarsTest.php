@@ -141,7 +141,6 @@ class CreateCarsTest extends TestCase
         $this->assertDatabaseMissing('cars', $car);
     }
 
-
     /**  @test */
     public function models_must_be_a_relationship_object()
     {
@@ -265,6 +264,7 @@ class CreateCarsTest extends TestCase
             'attributes' => $car
         ])->post(route('api.v1.cars.create'))
             ->assertStatus(422)
+            ->assertSee(trans('validation.invalid_length', ['attribute' => 'vin']))
             ->assertSee('data\/attributes\/vin');
 
         $this->assertDatabaseMissing('cars', $car);
@@ -282,6 +282,7 @@ class CreateCarsTest extends TestCase
             'attributes' => $car
         ])->post(route('api.v1.cars.create'))
             ->assertStatus(422)
+            ->assertSee(trans('validation.invalid_length', ['attribute' => 'vin']))
             ->assertSee('data\/attributes\/vin');
 
         $this->assertDatabaseMissing('cars', $car);

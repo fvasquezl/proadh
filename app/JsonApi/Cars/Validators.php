@@ -66,8 +66,7 @@ class Validators extends AbstractValidators
             'vin' => [
                 'required',
                 'alpha_num',
-                'size:17'
-             //   new Vin()
+                new Vin()
             ],
             'description' => ['required'],
             'authors'=>[
