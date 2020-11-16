@@ -28,7 +28,7 @@ class CarFactory extends Factory
         return [
             'brand' => $this->faker->word,
             'slug' => $this->faker->slug,
-            'year' => Carbon::now()->year - 6,
+            'year' => Carbon::now()->year - rand(5,10),
             'vin' => $this->faker->shuffleString("1234567890qwertyu"),
             'description' => $this->faker->text,
             'model_id' => Model::factory(),

@@ -24,20 +24,20 @@ class Schema extends SchemaProvider
     }
 
     /**
-     * @param Car $resource
+     * @param Car $car
      *      the domain record being serialized.
      * @return array
      */
-    public function getAttributes($resource)
+    public function getAttributes($car)
     {
         return [
-            'brand'=>$resource->brand,
-            'slug' => $resource->slug,
-            'year' => $resource->year,
-            'vin' => $resource->serial,
-            'description' => $resource->description,
-            'createdAt' => $resource->created_at->toAtomString(),
-            'updatedAt' => $resource->updated_at->toAtomString(),
+            'brand'=>$car->brand,
+            'slug' => $car->slug,
+            'year' => $car->year,
+            'vin' => $car->vin,
+            'description' => $car->description,
+            'createdAt' => $car->created_at->toAtomString(),
+            'updatedAt' => $car->updated_at->toAtomString(),
         ];
     }
 

@@ -39,9 +39,9 @@ class CarPolicy
      * @param  \App\Models\User  $user
      * @return mixed
      */
-    public function create(User $user)
+    public function create(User $user, $request)
     {
-        //
+
     }
 
     /**

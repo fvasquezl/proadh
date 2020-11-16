@@ -10,6 +10,7 @@ use Illuminate\Support\Collection;
 
 class Adapter extends AbstractAdapter
 {
+
     protected $fillable=['brand','slug','year','vin','description','models','authors'];
 
 

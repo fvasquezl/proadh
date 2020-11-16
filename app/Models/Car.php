@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Model as CarModel;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -49,5 +50,25 @@ class Car extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function scopeBrand(Builder $query,$value)
+    {
+        $query->where('brand', 'LIKE', "%{$value}%");
+    }
+
+    public function scopeYear(Builder $query,$value)
+    {
+        $query->where('year',$value);
+    }
+
+    public function scopeVin(Builder $query,$value)
+    {
+        $query->where('vin', 'LIKE', "%{$value}%");
+    }
+
+    public function scopeDescription(Builder $query,$value)
+    {
+        $query->where('description', 'LIKE', "%{$value}%");
     }
 }

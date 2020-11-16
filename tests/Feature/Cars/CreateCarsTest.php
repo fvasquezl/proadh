@@ -43,6 +43,7 @@ class CreateCarsTest extends TestCase
         ]));
 
 
+
         Sanctum::actingAs($user);
 
         $this->jsonApi()->withData([
