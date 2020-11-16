@@ -3,6 +3,8 @@
 namespace App\JsonApi\Cars;
 
 use App\Rules\Slug;
+use App\Rules\Vin;
+use Carbon\Carbon;
 use CloudCreativity\LaravelJsonApi\Rules\HasOne;
 use CloudCreativity\LaravelJsonApi\Validation\AbstractValidators;
 use Illuminate\Validation\Rule;
@@ -45,15 +47,28 @@ class Validators extends AbstractValidators
      */
     protected function rules($record, array $data): array
     {
+
         return [
             'brand' => ['required'],
             'slug' => [
                 'required',
                 'alpha_dash',
-                New Slug(),
+                New Slug,
                 Rule::unique('cars')->ignore($record)
             ],
-            'year' => ['required'],
+            'year' => [
+                'required',
+                'digits:4',
+                'integer',
+                "min:".(Carbon::now()->year -10),
+                'max:'.(Carbon::now()->year - 5),
+            ],
+            'vin' => [
+                'required',
+                'alpha_num',
+                'size:17'
+             //   new Vin()
+            ],
             'description' => ['required'],
             'models' => [
                 Rule::requiredIf(! $record),

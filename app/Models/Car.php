@@ -38,9 +38,7 @@ class Car extends Model
      *
      * @var array
      */
-    protected $dates = [
-        'year',
-    ];
+    protected $dates = [];
 
 
     public function model()

@@ -33,7 +33,8 @@ class Schema extends SchemaProvider
         return [
             'brand'=>$resource->brand,
             'slug' => $resource->slug,
-            'year' => $resource->year->toAtomString(),
+            'year' => $resource->year,
+            'vin' => $resource->serial,
             'description' => $resource->description,
             'createdAt' => $resource->created_at->toAtomString(),
             'updatedAt' => $resource->updated_at->toAtomString(),

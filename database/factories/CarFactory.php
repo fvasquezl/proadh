@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use App\Models\Car;
@@ -27,7 +28,8 @@ class CarFactory extends Factory
         return [
             'brand' => $this->faker->word,
             'slug' => $this->faker->slug,
-            'year' => $this->faker->dateTime(),
+            'year' => Carbon::now()->year - 6,
+            'vin' => $this->faker->word,
             'description' => $this->faker->text,
             'model_id' => Model::factory(),
             'user_id' => User::factory(),

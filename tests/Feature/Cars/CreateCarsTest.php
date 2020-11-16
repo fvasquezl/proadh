@@ -5,6 +5,7 @@ namespace Tests\Feature\Cars;
 use App\Models\Car;
 use App\Models\Model;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Laravel\Sanctum\Sanctum;
 use Tests\TestCase;
@@ -38,12 +39,9 @@ class CreateCarsTest extends TestCase
 
         $car = array_filter(Car::factory()->raw([
             'model_id'=>null,
-            'year' => now()
         ]));
 
-
         Sanctum::actingAs($user);
-
 
         $this->jsonApi()->withData([
             'type' => 'cars',
@@ -64,6 +62,7 @@ class CreateCarsTest extends TestCase
             'brand' => $car['brand'],
             'slug' => $car['slug'],
             'year' =>  $car['year'],
+            'vin' => $car['vin'],
             'description' => $car['description'],
         ]);
 
@@ -112,6 +111,119 @@ class CreateCarsTest extends TestCase
         ])->post(route('api.v1.cars.create'))
             ->assertStatus(422)
             ->assertSee('data\/attributes\/brand');
+
+        $this->assertDatabaseMissing('cars', $car);
+    }
+
+    /**  @test */
+    public function year_is_required()
+    {
+        $car = Car::factory()->raw(['year' => '']);
+        Sanctum::actingAs(User::factory()->create());
+        $this->jsonApi()->withData([
+            'type' => 'cars',
+            'attributes' => $car
+        ])->post(route('api.v1.cars.create'))
+            ->assertStatus(422)
+            ->assertSee('data\/attributes\/year');
+
+        $this->assertDatabaseMissing('cars', $car);
+    }
+
+    /**  @test */
+    public function only_cars_less_than_ten_years_old_can_be_accepted()
+    {
+        $car = Car::factory()->raw(['year' => Carbon::now()->year - 20]);
+
+        Sanctum::actingAs(User::factory()->create());
+        $this->jsonApi()->withData([
+            'type' => 'cars',
+            'attributes' => $car
+        ])->post(route('api.v1.cars.create'))
+            ->assertStatus(422)
+            ->assertSee('data\/attributes\/year');
+
+        $this->assertDatabaseMissing('cars', $car);
+    }
+
+    /**  @test */
+    public function only_cars_greater_than_five_years_old_can_be_accepted()
+    {
+        $car = Car::factory()->raw(['year' => Carbon::now()->year - 4]);
+
+        Sanctum::actingAs(User::factory()->create());
+        $this->jsonApi()->withData([
+            'type' => 'cars',
+            'attributes' => $car
+        ])->post(route('api.v1.cars.create'))
+            ->assertStatus(422)
+            ->assertSee('data\/attributes\/year');
+
+        $this->assertDatabaseMissing('cars', $car);
+    }
+
+    /**  @test */
+    public function vin_is_required()
+    {
+        $car = Car::factory()->raw(['vin' => '']);
+        Sanctum::actingAs(User::factory()->create());
+        $this->jsonApi()->withData([
+            'type' => 'cars',
+            'attributes' => $car
+        ])->post(route('api.v1.cars.create'))
+            ->assertStatus(422)
+            ->assertSee('data\/attributes\/vin');
+
+        $this->assertDatabaseMissing('cars', $car);
+    }
+
+    /**  @test */
+    public function vin_must_only_contains_letters_numbers()
+    {
+        $car = Car::factory()->raw(['vin' => '%^_-@#']);
+
+        Sanctum::actingAs(User::factory()->create());
+
+        $this->jsonApi()->withData([
+            'type' => 'cars',
+            'attributes' => $car
+        ])->post(route('api.v1.cars.create'))
+            ->assertStatus(422)
+            ->assertSee('data\/attributes\/vin');
+
+        $this->assertDatabaseMissing('cars', $car);
+    }
+
+    /**  @test */
+    public function vin_must_be_greater_than_16_characters()
+    {
+        $car = Car::factory()->raw(['vin' => '1234567890asdfgh']);
+
+        Sanctum::actingAs(User::factory()->create());
+
+        $this->jsonApi()->withData([
+            'type' => 'cars',
+            'attributes' => $car
+        ])->post(route('api.v1.cars.create'))
+            ->assertStatus(422)
+            ->assertSee('data\/attributes\/vin');
+
+        $this->assertDatabaseMissing('cars', $car);
+    }
+
+    /**  @test */
+    public function vin_must_be_less_than_18_characters()
+    {
+        $car = Car::factory()->raw(['vin' => '1234567890asdfghKK']);
+
+        Sanctum::actingAs(User::factory()->create());
+
+        $this->jsonApi()->withData([
+            'type' => 'cars',
+            'attributes' => $car
+        ])->post(route('api.v1.cars.create'))
+            ->assertStatus(422)
+            ->assertSee('data\/attributes\/vin');
 
         $this->assertDatabaseMissing('cars', $car);
     }
